@@ -1,0 +1,9 @@
+{
+  "https": {
+    "url": "https://localhost:5001",
+    "sslPort": 5001
+  },
+  "http": {
+    "url": "http://localhost:5000"
+  }
+}

@@ -1,0 +1,84 @@
+[
+  {
+    "ContainingType": "ConstructionAPI.Controllers.ConstructionController",
+    "Method": "GetConstructionData",
+    "RelativePath": "api/Construction",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "ConstructionAPI.Models.ConstructionObservation",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConstructionAPI.Controllers.ConstructionController",
+    "Method": "GetConstructionDataBySamplingTime",
+    "RelativePath": "api/Construction/by-sampling-time",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "samplingTime",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConstructionAPI.Models.ConstructionData",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConstructionAPI.Controllers.ConstructionController",
+    "Method": "GetSamplingTimes",
+    "RelativePath": "api/Construction/sampling-times",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[System.DateTime, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConstructionAPI.Controllers.ConstructionController",
+    "Method": "UpdateConstructionData",
+    "RelativePath": "api/Construction/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ConstructionAPI.Models.UpdateConstructionDataRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

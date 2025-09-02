@@ -1,0 +1,37 @@
+{
+  "Id": 1,
+  "Name": "New Observation",
+  "Datas": [
+    
+    {
+      "SamplingTime": "2021-04-22T11:00:05.5081232+05:30",
+      "Properties": [
+        {
+          "Value": "Road Construction 2",
+          "Label": "Project Name"
+        },
+        {
+          "Value": true,
+          "Label": "Is Construction Completed"
+        },
+        {
+          "Value": 3.2,
+          "Label": "Length of the road"
+        }
+      ]
+    },
+    {
+      "SamplingTime": "2021-04-23T11:00:05.5081232+05:30",
+      "Properties": [
+        {
+          "Value": "Road Construction 3",
+          "Label": "Project Name"
+        },
+        {
+          "Value": false,
+          "Label": "Is COnstruction Completed"
+        }
+      ]
+    }
+  ]
+}

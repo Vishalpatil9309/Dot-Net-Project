@@ -1,0 +1,222 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ConstructionAPI",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Construction": {
+      "get": {
+        "tags": [
+          "Construction"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstructionObservation"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstructionObservation"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstructionObservation"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Construction/by-sampling-time": {
+      "get": {
+        "tags": [
+          "Construction"
+        ],
+        "parameters": [
+          {
+            "name": "samplingTime",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstructionData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstructionData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConstructionData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Construction/update": {
+      "put": {
+        "tags": [
+          "Construction"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateConstructionDataRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateConstructionDataRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateConstructionDataRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Construction/sampling-times": {
+      "get": {
+        "tags": [
+          "Construction"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ConstructionData": {
+        "type": "object",
+        "properties": {
+          "samplingTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConstructionProperty"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConstructionObservation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "datas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConstructionData"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConstructionProperty": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "nullable": true
+          },
+          "label": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateConstructionDataRequest": {
+        "type": "object",
+        "properties": {
+          "samplingTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConstructionProperty"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
